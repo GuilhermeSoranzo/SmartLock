@@ -10,7 +10,9 @@ namespace SmartLock
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+
+            MainPage = new Menu();
         }
 
         protected override void OnStart()

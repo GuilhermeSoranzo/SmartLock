@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartLock.Login"
+             BackgroundColor="#1E1E1E">
+    <ContentPage.Resources>
+        <!-- Estilo para o Entry -->
+        <Style x:Key="CenteredPlaceholderEntryStyle" TargetType="Entry">
+            <Setter Property="Placeholder" Value="Placeholder Centralizado" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <Image Source="pado.PNG" WidthRequest="180" HeightRequest="180"></Image>
+
+        <Label HorizontalOptions="Center" Margin="0,10,0,20">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Faça seu login" TextColor="White" FontSize="Medium"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Frame BackgroundColor="White" CornerRadius="50" Padding="5" Margin="0,10,0,5">
+            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Login" TextColor="Black" PlaceholderColor="#706D6D"></Entry>
+        </Frame>
+        <Frame BackgroundColor="White" CornerRadius="50" Padding="5" Margin="0,5,0,0">
+            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Senha" IsPassword="True" TextColor="Black" PlaceholderColor="#706D6D" ></Entry>
+        </Frame>
+
+        <Label HorizontalOptions="End" Margin="0,0,15,40">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Esqueci a senha" TextColor="#1B6ADF"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button
+                VerticalOptions="Center"
+                Text="Login"
+                TextColor="White"
+                BackgroundColor="#BF5F8E"
+                BorderColor="#BF5F8E"
+                BorderWidth="1.5"
+                CornerRadius="50"></Button>
+
+        <Label HorizontalOptions="Center" Margin="0,50,0,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Criar uma conta" TextColor="White"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+    </StackLayout>
+</ContentPage>
