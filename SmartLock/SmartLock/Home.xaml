@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartLock.Home"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="#2b2929">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  VerticalOptions="Center" Spacing="0">
+                <BoxView Color="#1f1e1f" CornerRadius="50,50,0,0" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="1"/>
+                <Frame x:Name="frame" HasShadow="True"  BackgroundColor="#1f1e1f">
+                    <Image Source="pado.PNG" WidthRequest="50" HeightRequest="50" Margin="20,20,20,10"></Image>
+                </Frame>
+                <Frame x:Name="frameTwo" HasShadow="True" Margin="0,0,0,0" BackgroundColor="#1f1e1f">
+                    <Label Text="Fechaduras" TextColor="White" FontSize="Title" HorizontalTextAlignment="Center"></Label>
+                </Frame>
+
+                <BoxView HeightRequest="10" Color="#000000" IsVisible="true"></BoxView>
+                <ListView ItemsSource="{Binding FoodList}"
+                   HasUnevenRows="true"
+                   SeparatorVisibility="None"
+                   HorizontalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame x:Name="frame" HasShadow="True" CornerRadius="5"  Padding="0" BackgroundColor="#1f1e1f">
+                                    <Grid HorizontalOptions="FillAndExpand" BackgroundColor="#2b2929"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="1"  Spacing="0" Padding="0,3,0,0" >
+                                            <BoxView Grid.Row="1" Grid.ColumnSpan="1" HeightRequest="1" WidthRequest="0" BackgroundColor="white"/>
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Large" ></Label>
+                                            <Label HorizontalOptions="CenterAndExpand" Text="{Binding Estado}" FontAttributes="Bold" FontSize="Medium" TextColor="{Binding Color}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <AbsoluteLayout>
+                <ImageButton Source="button.png" 
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"  
+                    AbsoluteLayout.LayoutBounds=".95,.95,80,80"/>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

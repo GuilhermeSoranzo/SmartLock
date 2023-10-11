@@ -12,7 +12,7 @@ namespace SmartLock
 
             //MainPage = new MainPage();
 
-            MainPage = new Menu();
+            MainPage = new Login();
         }
 
         protected override void OnStart()

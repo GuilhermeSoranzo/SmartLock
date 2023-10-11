@@ -86,7 +86,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartLock\SmartLock.csproj">
       <Project>{761CD823-3767-4138-A55E-5E073379D3F0}</Project>
