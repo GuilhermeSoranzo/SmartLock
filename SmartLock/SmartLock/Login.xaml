@@ -44,7 +44,8 @@
                 BackgroundColor="#BF5F8E"
                 BorderColor="#BF5F8E"
                 BorderWidth="1.5"
-                CornerRadius="50"></Button>
+                CornerRadius="50"
+                Clicked="Button_ClickedAsync"></Button>
 
         <Label HorizontalOptions="Center" Margin="0,50,0,0">
             <Label.FormattedText>
