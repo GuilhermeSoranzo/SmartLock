@@ -17,14 +17,14 @@ namespace SmartLock
             InitializeComponent();
         }
 
-        private async void Button_ClickedAsync(object sender, EventArgs e)
+        private async void ButtonClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Home());
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void ClickedCadastro(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new Cadastro());
         }
     }
 }
