@@ -19,7 +19,8 @@
                 <ListView ItemsSource="{Binding FoodList}"
                    HasUnevenRows="true"
                    SeparatorVisibility="None"
-                   HorizontalOptions="FillAndExpand">
+                   HorizontalOptions="FillAndExpand"
+                   ItemSelected="ListView_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

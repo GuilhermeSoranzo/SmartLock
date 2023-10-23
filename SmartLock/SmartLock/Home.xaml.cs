@@ -1,4 +1,5 @@
-﻿using SmartLock.ViewModel;
+﻿using SmartLock.Model;
+using SmartLock.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,19 @@ namespace SmartLock
         public Home()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new ListaHomeViewModel();
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender;
+
+            // this assumes your List is bound to a List<Club>
+            Fechadura fechadura = (Fechadura)lv.SelectedItem;
+
+            Navigation.PushAsync(new AbertoFechado(fechadura.Name));
+            
         }
     }
 }

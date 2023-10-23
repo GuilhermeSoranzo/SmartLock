@@ -15,6 +15,7 @@ namespace SmartLock
         public Login()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private async void ButtonClickedAsync(object sender, EventArgs e)

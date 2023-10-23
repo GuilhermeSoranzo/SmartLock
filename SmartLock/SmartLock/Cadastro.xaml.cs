@@ -15,6 +15,7 @@ namespace SmartLock
         public Cadastro()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void Button_Clicked(object sender, EventArgs e)

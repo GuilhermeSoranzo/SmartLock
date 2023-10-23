@@ -15,6 +15,7 @@ namespace SmartLock
         public Menu()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }
