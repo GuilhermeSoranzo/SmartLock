@@ -16,7 +16,7 @@
                 </Frame>
 
                 <BoxView HeightRequest="10" Color="#000000" IsVisible="true"></BoxView>
-                <ListView ItemsSource="{Binding FoodList}"
+                <ListView ItemsSource="{Binding Fechaduras}"
                    HasUnevenRows="true"
                    SeparatorVisibility="None"
                    HorizontalOptions="FillAndExpand"
@@ -47,7 +47,8 @@
                 <ImageButton Source="button.png" 
                     BackgroundColor="Transparent"
                     AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.95,80,80"/>
+                    AbsoluteLayout.LayoutBounds=".95,.95,80,80"
+                    Clicked="BtnAddFechadura"/>
             </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using SmartLock.iOS.FileIOS;
 using UIKit;
 
 namespace SmartLock.iOS
@@ -23,8 +24,9 @@ namespace SmartLock.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
-
+            string dbName = "dbSmartLock.db3";
+            string dbPath = DatabaseIOS.GetLocalFilePath(dbName);
+            LoadApplication(new App(dbName, dbPath));
             return base.FinishedLaunching(app, options);
         }
     }

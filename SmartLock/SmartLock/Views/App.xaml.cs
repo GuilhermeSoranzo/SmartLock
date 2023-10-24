@@ -6,12 +6,22 @@ namespace SmartLock
 {
     public partial class App : Application
     {
+        public static string DbName;
+        public static string DbPath;
         public App()
         {
             InitializeComponent();
 
             //MainPage = new MainPage();
 
+            MainPage = new NavigationPage(new Login());
+        }
+
+        public App(string dbName, string dbPath)
+        {
+            InitializeComponent();
+            App.DbName = dbName;
+            App.DbPath = dbPath;
             MainPage = new NavigationPage(new Login());
         }
 

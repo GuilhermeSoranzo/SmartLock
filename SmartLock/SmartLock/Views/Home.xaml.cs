@@ -1,5 +1,6 @@
 ﻿using SmartLock.Model;
 using SmartLock.ViewModel;
+using SmartLock.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,11 @@ namespace SmartLock
             Navigation.PushAsync(new AbertoFechado(fechadura.Name));
             
         }
+
+        public void BtnAddFechadura(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AdicionarFechadura());
+        }
+
     }
 }

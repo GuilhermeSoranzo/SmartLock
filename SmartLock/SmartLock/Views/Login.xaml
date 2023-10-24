@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartLock.Cadastro"
+             x:Class="SmartLock.Login"
              BackgroundColor="#1E1E1E">
-
     <ContentPage.Resources>
         <!-- Estilo para o Entry -->
         <Style x:Key="CenteredPlaceholderEntryStyle" TargetType="Entry">
@@ -18,20 +17,25 @@
         <Label HorizontalOptions="Center" Margin="0,10,0,20">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="Crie sua conta" TextColor="White" FontSize="Medium"></Span>
+                    <Span Text="Faça seu login" TextColor="White" FontSize="Medium"></Span>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
         <Frame BackgroundColor="White" CornerRadius="50" Padding="5" Margin="0,10,0,5">
-            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Digite seu e-mail"  TextColor="Black" PlaceholderColor="#706D6D"></Entry>
+            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Login" x:Name="login" TextColor="Black" PlaceholderColor="#706D6D" ></Entry>
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="50" Padding="5" Margin="0,5,0,0">
-            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Crie uma senha" IsPassword="True" TextColor="Black" PlaceholderColor="#706D6D" ></Entry>
+            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Senha" x:Name="senha" IsPassword="True" TextColor="Black" PlaceholderColor="#706D6D" ></Entry>
         </Frame>
-        <Frame BackgroundColor="White" CornerRadius="50" Padding="5" Margin="0,5,0,40">
-            <Entry Style="{StaticResource CenteredPlaceholderEntryStyle}" Placeholder="Confirme sua senha" IsPassword="True" TextColor="Black" PlaceholderColor="#706D6D" ></Entry>
-        </Frame>
+
+        <Label HorizontalOptions="End" Margin="0,0,15,40">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Esqueci a senha" TextColor="#1B6ADF"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
         <Button
                 VerticalOptions="Center"
@@ -41,8 +45,18 @@
                 BorderColor="#BF5F8E"
                 BorderWidth="1.5"
                 CornerRadius="50"
-                Clicked="Button_Clicked"></Button>
+                Clicked="ButtonClickedAsync"></Button>
+
+        <Label HorizontalOptions="Center" Margin="0,50,0,0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ClickedCadastro"/>
+            </Label.GestureRecognizers>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Criar uma conta" TextColor="White"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
     </StackLayout>
-
 </ContentPage>

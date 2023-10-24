@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartLock.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,15 @@ namespace SmartLock
 
         private async void ButtonClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Home());
+            ServiceDBUser database = new ServiceDBUser(App.DbPath);
+            if (database.AutorizarLogin(login.Text, senha.Text))
+            {
+                await Navigation.PushAsync(new Home());
+            }
+            else
+            {
+                DisplayAlert("Resultado", "Usuário não encontrado!", "OK");
+            }
         }
 
         private void ClickedCadastro(object sender, EventArgs e)
