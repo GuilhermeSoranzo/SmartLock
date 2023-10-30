@@ -29,11 +29,27 @@ namespace SmartLock
 
         public async void btn_mymatches_mainmenu_Clicked(object sender, EventArgs e)
         {
-            await btn_mymatches_mainmenu.ScaleTo(0.75, 100);
-            await btn_mymatches_mainmenu.ScaleTo(1, 100);
+            await btnImagem.ScaleTo(0.75, 100);
+            await btnImagem.ScaleTo(1, 100);
 
-            var conexao = new ConexaoESPSmartLock();
-            conexao.RequestToEsp();
+            if(textoAbertoFechado.Text == "Aberto")
+            {
+                var conexao = new ConexaoESPSmartLock();
+                conexao.RequestToEsp("off");
+                textoAbertoFechado.Text = "Fechado";
+                textoAbertoFechado.TextColor = Color.Red;
+                textoDesbloquearBlock.Text = "Pressione para desbloquear";
+                btnImagem.Source = "FechaduraClosed.PNG";
+            }
+            else if(textoAbertoFechado.Text == "Fechado")
+            {
+                var conexao = new ConexaoESPSmartLock();
+                conexao.RequestToEsp("on");
+                textoAbertoFechado.Text = "Aberto";
+                textoAbertoFechado.TextColor = Color.Green;
+                textoDesbloquearBlock.Text = "Pressione para bloquear";
+                btnImagem.Source = "FechaduraOpen.png";
+            }
         }
     }
 }

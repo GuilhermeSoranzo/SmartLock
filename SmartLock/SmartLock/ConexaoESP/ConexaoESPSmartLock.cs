@@ -7,15 +7,13 @@ using System.Net.Http;
 
 public class ConexaoESPSmartLock
 {
-    public void RequestToEsp()
+    public void RequestToEsp(string acao)
     {
         string address = "192.168.4.1";
 
         string token = "ACB5"; 
 
-        string action = "on"; 
-
-        string url = $"http://{address}/?token={token}&led={action}";
+        string url = $"http://{address}/?token={token}&led={acao}";
 
         HttpClient httpClient = new HttpClient();
 

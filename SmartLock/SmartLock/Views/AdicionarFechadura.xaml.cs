@@ -17,6 +17,7 @@ namespace SmartLock.Views
         public AdicionarFechadura()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void ButtonClickedAsync(object sender, EventArgs e)
