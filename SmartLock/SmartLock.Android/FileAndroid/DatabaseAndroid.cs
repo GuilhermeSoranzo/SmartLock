@@ -13,5 +13,6 @@ namespace SmartLock.Droid
             string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             return System.IO.Path.Combine(path, filename);
         }
+
     }
 }
