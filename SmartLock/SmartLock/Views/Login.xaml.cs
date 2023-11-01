@@ -24,7 +24,7 @@ namespace SmartLock
         private async void ButtonClickedAsync(object sender, EventArgs e)
         {
 
-            var s3 = new AmazonS3Client("ASIA2IVKB6WV5W6BH36V", "Hra2l6IN0CfssdlUlwB2HXOrVfjqJPrVZn/osyVr", "us-east-1");
+            var s3 = new AmazonS3Client("ASIA2IVKB6WV5W6BH36V", "Hra2l6IN0CfssdlUlwB2HXOrVfjqJPrVZn/osyVr", "FwoGZXIvYXdzEOD//////////wEaDLVkOOCfaMG5HeHKUiK+AaJQ+iHmRfBC8Raikr0jNKrdEvRwu6/Xj97SfW168Rjc6Q5V4UKgaqsuQQHf45HXhVBowfM0NCZHs2HmGGCq+ID/Xo0nhSlHu2pHjap56ck7vdjtb0CdQ3awGgA5Nx57WkpKQFUGdmnGTjbKifHNBMb1viGkl40KuAm5k3N43Enre9qzmvfSHRR3KTmpPjw/poy8w2hVt6qhg+3FKi6AQNPXcEBwNxrmi6gYUPEuLw6PMzghbCyxjmFHLv5+eyYosIaGqgYyLfpyZHIJjB4reUyn0PI0h9IjFZDum7UuFmU9zR+YhnWIU6y6TXxzvVRLDAeWdQ==", Amazon.RegionEndpoint.USEast1);
 
             var fileTransferUtil = new TransferUtility(s3);
             var filePath = "C://Documentos/download.png";
