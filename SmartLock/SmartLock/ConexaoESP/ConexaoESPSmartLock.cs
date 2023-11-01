@@ -7,7 +7,7 @@ using System.Net.Http;
 
 public class ConexaoESPSmartLock
 {
-    public void RequestToEsp(string acao)
+    public async Task RequestToEsp(string acao)
     {
         string address = "192.168.4.1";
 
@@ -19,8 +19,8 @@ public class ConexaoESPSmartLock
 
         try
         {
-            HttpResponseMessage response = httpClient.PostAsync(url, null).Result;
-            string responseContent = response.Content.ReadAsStringAsync().Result;
+            HttpResponseMessage response = await httpClient.PostAsync(url, null);
+            string responseContent = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)
             {

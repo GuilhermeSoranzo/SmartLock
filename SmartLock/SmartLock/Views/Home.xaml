@@ -47,7 +47,7 @@
                 <ImageButton Source="button.png" 
                     BackgroundColor="Transparent"
                     AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.95,80,80"
+                    AbsoluteLayout.LayoutBounds=".98,.95,70,70"
                     Clicked="BtnAddFechadura"/>
             </AbsoluteLayout>
         </StackLayout>

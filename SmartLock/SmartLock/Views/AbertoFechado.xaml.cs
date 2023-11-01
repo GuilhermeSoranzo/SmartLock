@@ -35,7 +35,7 @@ namespace SmartLock
             if(textoAbertoFechado.Text == "Aberto")
             {
                 var conexao = new ConexaoESPSmartLock();
-                conexao.RequestToEsp("off");
+                await conexao.RequestToEsp("off");
                 textoAbertoFechado.Text = "Fechado";
                 textoAbertoFechado.TextColor = Color.Red;
                 textoDesbloquearBlock.Text = "Pressione para desbloquear";
@@ -44,7 +44,7 @@ namespace SmartLock
             else if(textoAbertoFechado.Text == "Fechado")
             {
                 var conexao = new ConexaoESPSmartLock();
-                conexao.RequestToEsp("on");
+                await conexao.RequestToEsp("on");
                 textoAbertoFechado.Text = "Aberto";
                 textoAbertoFechado.TextColor = Color.Green;
                 textoDesbloquearBlock.Text = "Pressione para bloquear";
