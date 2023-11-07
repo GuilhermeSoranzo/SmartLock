@@ -23,7 +23,7 @@ namespace SmartLock.Service
             if (cadastro.Email.Length > 0 && cadastro.Senha.Length > 0)
             {
                 int result = conn.Insert(cadastro);
-                this.StatusMessage = string.Format("{0} registro adicionado: [Nota: {1}]", result, cadastro.Email);
+                this.StatusMessage = string.Format("Registro {0} adicionado com sucesso", cadastro.Email);
             }
         }
 

@@ -31,17 +31,17 @@ namespace SmartLock
             string dbPath = GetLocalFilePath(dbName);
             var filePath = dbPath;
 
-            var fileTransferUtilityRequest = new TransferUtilityUploadRequest
-            {
-                BucketName = "xamarian-smart-lock",
-                FilePath = filePath,
-                StorageClass = S3StorageClass.StandardInfrequentAccess,
-                PartSize = 6291456,
-                Key = "teste-imagem",
-                CannedACL = S3CannedACL.PublicRead
-            };
+            //var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+            //{
+            //    BucketName = "xamarian-smart-lock",
+            //    FilePath = filePath,
+            //    StorageClass = S3StorageClass.StandardInfrequentAccess,
+            //    PartSize = 6291456,
+            //    Key = "teste-imagem",
+            //    CannedACL = S3CannedACL.PublicRead
+            //};
 
-            await fileTransferUtil.UploadAsync(fileTransferUtilityRequest);
+            //await fileTransferUtil.UploadAsync(fileTransferUtilityRequest);
 
             ServiceDBUser database = new ServiceDBUser(App.DbPath);
             if (database.AutorizarLogin(login.Text, senha.Text))

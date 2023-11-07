@@ -30,10 +30,12 @@
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        <StackLayout Grid.Column="1"  Spacing="0"  >
-                                            <Frame x:Name="frameTwo" HasShadow="True" CornerRadius="10" BackgroundColor="#2b2929">
+                                        <StackLayout Grid.Column="1"  Spacing="10" Orientation="Horizontal">
+                                            <Frame x:Name="frameTwo" HasShadow="True" CornerRadius="10" BackgroundColor="#2b2929" WidthRequest="380" HeightRequest="20">
                                                 <Label Text="{Binding Name}" Padding="10,0,0,0" FontAttributes="Bold" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="Medium" ></Label>
                                             </Frame>
+                                            <ImageButton Source="pen.png" Clicked="ButtonEdit" BackgroundColor="#2b2929" Padding="0" CornerRadius="10" HeightRequest="5" WidthRequest="33" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                            <ImageButton Source="Trash.png" Clicked="ButtonDelete" BackgroundColor="#2b2929" Padding="0" CornerRadius="10" HeightRequest="5" WidthRequest="33" HorizontalOptions="Fill" VerticalOptions="Fill"/>
                                             <BoxView Grid.Row="1" Grid.ColumnSpan="1" HeightRequest="1" WidthRequest="0" BackgroundColor="white"/>
                                         </StackLayout>
                                     </Grid>

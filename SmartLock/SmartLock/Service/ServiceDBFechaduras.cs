@@ -27,5 +27,10 @@ namespace SmartLock.Service
         {
             return conn.Table<Fechadura>().ToList();
         }
+
+        public void RemoverFechadura(long id)
+        {
+            conn.Delete<Fechadura>(id);
+        }
     }
 }
