@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Plugin.BLE;
+using Plugin.BLE.Abstractions.Contracts;
+using Plugin.BLE.Abstractions.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +15,7 @@ namespace SmartLock
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AbertoFechado : ContentPage
     {
+        IAdapter BluetoothAdapter;
         public AbertoFechado()
         {
             InitializeComponent();
@@ -35,7 +39,8 @@ namespace SmartLock
             if(textoAbertoFechado.Text == "Aberto")
             {
                 var conexao = new ConexaoESPSmartLock();
-                await conexao.RequestToEsp("off");
+                //await conexao.RequestToEsp("off");
+                ConectBluetoothEspAsync();
                 textoAbertoFechado.Text = "Fechado";
                 textoAbertoFechado.TextColor = Color.Red;
                 textoDesbloquearBlock.Text = "Pressione para desbloquear";
@@ -44,12 +49,38 @@ namespace SmartLock
             else if(textoAbertoFechado.Text == "Fechado")
             {
                 var conexao = new ConexaoESPSmartLock();
-                await conexao.RequestToEsp("on");
+                //await conexao.RequestToEsp("on");
+                ConectBluetoothEspAsync();
                 textoAbertoFechado.Text = "Aberto";
                 textoAbertoFechado.TextColor = Color.Green;
                 textoDesbloquearBlock.Text = "Pressione para bloquear";
                 btnImagem.Source = "FechaduraOpen.png";
             }
+        }
+
+        private async void ConectBluetoothEspAsync()
+        {
+            var ble = CrossBluetoothLE.Current;
+            var adapter = CrossBluetoothLE.Current.Adapter;
+            List<IDevice> deviceList = new List<IDevice>();
+
+            adapter.DeviceDiscovered += (s, a) => deviceList.Add(a.Device);
+            await adapter.StartScanningForDevicesAsync();
+
+            try
+            {
+                await adapter.ConnectToDeviceAsync(deviceList.FirstOrDefault());
+                var connectedDevice = adapter.ConnectedDevices.FirstOrDefault();
+                var services = await connectedDevice.GetServicesAsync();
+                var characteristics = await services.FirstOrDefault().GetCharacteristicsAsync();
+                byte[] bytes = Encoding.ASCII.GetBytes("on");
+                await characteristics.FirstOrDefault().WriteAsync(bytes);
+            }
+            catch (DeviceConnectionException e)
+            {
+                throw new Exception(e.Message);
+            }
+
         }
     }
 }
