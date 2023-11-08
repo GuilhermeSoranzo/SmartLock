@@ -46,7 +46,7 @@ namespace SmartLock
             if (database.AutorizarLogin(login.Text, senha.Text))
             {
                 await Navigation.PushAsync(new Home());
-                await fileTransferUtil.UploadAsync(fileTransferUtilityRequest);
+                //await fileTransferUtil.UploadAsync(fileTransferUtilityRequest);
             }
             else
             {

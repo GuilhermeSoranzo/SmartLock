@@ -23,6 +23,11 @@ namespace SmartLock.Service
             int result = conn.Insert(cadastro);
         }
 
+        public void Alterar(Fechadura cadastro)
+        {
+            int result = conn.Update(cadastro);
+        }
+
         public List<Fechadura> ListarFechaduras()
         {
             return conn.Table<Fechadura>().ToList();

@@ -43,8 +43,8 @@ namespace SmartLock
 
         private void ButtonDelete(object sender, EventArgs e)
         {
-            var teste = sender as ImageButton;
-            var values = (Fechadura)teste.BindingContext;
+            var btnImage = sender as ImageButton;
+            var values = (Fechadura)btnImage.BindingContext;
             Device.BeginInvokeOnMainThread(async () => {
                 var result = await this.DisplayAlert("Alerta!", "Você deseja continuar com a exclusão da fechadura?", "Sim", "Não");
                 if (result)
@@ -57,7 +57,10 @@ namespace SmartLock
         
         private void ButtonEdit(object sender, EventArgs e)
         {
+            var btnImage = sender as ImageButton;
+            var values = (Fechadura)btnImage.BindingContext;
 
+            Navigation.PushAsync(new AdicionarFechadura(values.Id, values.Name, values.Description));
         }
     }
 }
